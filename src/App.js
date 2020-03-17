@@ -17,10 +17,9 @@ const App = () => {
 
   return (
       <div className="App">
-        <header className="App-header">
-        </header>
-          <PhoneBookForm updatePhoneBook={updatePhoneBook} firstName={firstName} lastName={lastName} userPhone={userPhone} setUserPhone={setUserPhone} setFirstName={setFirstName} setLastName={setLastName}/>
-          <InformationPage phoneBookData={phoneBookData}/>  
+        <header className="App-header"></header>
+        <PhoneBookForm updatePhoneBook={updatePhoneBook} firstName={firstName} lastName={lastName} userPhone={userPhone} setUserPhone={setUserPhone} setFirstName={setFirstName} setLastName={setLastName}/>
+        <InformationPage phoneBookData={phoneBookData}/>  
       </div>
   );
 }
