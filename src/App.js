@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import InformationPage from './components/InformationPage';
+import PhoneBookForm from './components/PhoneBookForm'
 import './App.css';
 
-function App() {
+const App = () => {
+  const [phoneBookData, setPhoneBookData] = useState([])
+
+  const [firstName, setFirstName] =useState('');
+  const [lastName, setLastName] =useState('');
+  const [userPhone, setUserPhone] =useState('');
+
+  const updatePhoneBook = (e) => {
+    e.preventDefault();
+    return setPhoneBookData([...phoneBookData, {"firstName": firstName, "lastName": lastName, "phone": userPhone}])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <header className="App-header">
+        </header>
+          <PhoneBookForm updatePhoneBook={updatePhoneBook} firstName={firstName} lastName={lastName} userPhone={userPhone} setUserPhone={setUserPhone} setFirstName={setFirstName} setLastName={setLastName}/>
+          <InformationPage phoneBookData={phoneBookData}/>  
+      </div>
   );
 }
 
